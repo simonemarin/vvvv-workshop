@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
    <PATCH nodename="C:\Users\io\Desktop\vvvv workshop\5-importar de blender\blender-import.v4p" systemname="blender-import" filename="C:\Users\io\Desktop\vvvv workshop\5-importar de blender\blender-import.v4p">
    <BOUNDS type="Window" left="330" top="405" width="11700" height="9975">
    </BOUNDS>
-   <PACK Name="addonpack" Version="31.9.0">
+   <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE componentmode="InAWindow" id="15" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="100" left="3540" top="7950" type="Node" width="100">
@@ -59,11 +59,11 @@
    </PIN>
    <PIN pinname="Render State" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
+   <PIN pinname="Transform" visible="1" slicecount="2" values=",">
    </PIN>
    <PIN pinname="Light Direction XYZ" slicecount="3" visible="1" values="-5.68,1.35,-4">
    </PIN>
-   <PIN pinname="Ambient Color" slicecount="1" values="|0.46368,0.46368,0.46368,1.00000|">
+   <PIN pinname="Ambient Color" slicecount="1" values="|0.46368,0.46368,0.46368,1.00000|" visible="1">
    </PIN>
    <PIN pinname="Texture" slicecount="1" visible="1" values="||">
    </PIN>
@@ -207,17 +207,13 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="11100" top="5550" width="5190" height="5040">
+   </BOUNDS>
    </NODE>
    <LINK dstnodeid="2" dstpinname="Select" linkstyle="Bezier" srcnodeid="3" srcpinname="Mesh Id Bin Size">
    <LINKPOINT x="1185" y="3930">
    </LINKPOINT>
    <LINKPOINT x="1395" y="3930">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="13" dstpinname="Transform" linkstyle="VHV" srcnodeid="2" srcpinname="Output">
-   <LINKPOINT x="690" y="5190">
-   </LINKPOINT>
-   <LINKPOINT x="2235" y="5190">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" id="1" nodename="Select (Node)" systemname="Select (Node)">
@@ -241,8 +237,6 @@
    </LINKPOINT>
    <LINKPOINT x="2820" y="3938">
    </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="13" dstpinname="Mesh" srcnodeid="1" srcpinname="Output">
    </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="5490" top="5400" width="100" height="100">
@@ -302,4 +296,46 @@
    <PIN pinname="Size" slicecount="1" values="13">
    </PIN>
    </NODE>
+   <NODE systemname="HSV (Color Join)" nodename="HSV (Color Join)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="3300" top="5115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Saturation" slicecount="1" values="1.32">
+   </PIN>
+   <PIN pinname="Hue" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="13" dstpinname="Ambient Color">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3285" top="4500" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3285" top="4500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.65,0.04">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Hue">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="13" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="13" dstpinname="Transform" linkstyle="VHV">
+   <LINKPOINT x="690" y="5190">
+   </LINKPOINT>
+   <LINKPOINT x="2235" y="5190">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="Image" Version="0.2.0">
+   </PACK>
    </PATCH>
