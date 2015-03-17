@@ -1,0 +1,305 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="C:\Users\io\Desktop\vvvv workshop\5-importar de blender\blender-import.v4p" systemname="blender-import" filename="C:\Users\io\Desktop\vvvv workshop\5-importar de blender\blender-import.v4p">
+   <BOUNDS type="Window" left="330" top="405" width="11700" height="9975">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
+   <NODE componentmode="InAWindow" id="15" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <BOUNDS height="100" left="3540" top="7950" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="1800" left="3540" top="7950" type="Box" width="2400">
+   </BOUNDS>
+   <BOUNDS height="6240" left="13635" top="1875" type="Window" width="8595">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Windowed Depthbuffer Format" slicecount="1" values="D24X8">
+   </PIN>
+   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="NONE">
+   </PIN>
+   <PIN pinname="Fullscreen Depthbuffer Format" slicecount="1" values="NONE">
+   </PIN>
+   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|1024 x 768|">
+   </PIN>
+   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="NONE">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="14" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="4905" top="6555" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="5000">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.02">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="-0.08">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="15" dstpinname="Projection" linkstyle="Bezier" srcnodeid="14" srcpinname="Projection">
+   <LINKPOINT x="5285" y="7490">
+   </LINKPOINT>
+   <LINKPOINT x="4795" y="7285">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\effects\GouraudDirectional.fx" id="13" nodename="GouraudDirectional (EX9.Effect)" systemname="GouraudDirectional (EX9.Effect)">
+   <BOUNDS height="100" left="1920" top="5670" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Render State" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Light Direction XYZ" slicecount="3" visible="1" values="-5.68,1.35,-4">
+   </PIN>
+   <PIN pinname="Ambient Color" slicecount="1" values="|0.46368,0.46368,0.46368,1.00000|">
+   </PIN>
+   <PIN pinname="Texture" slicecount="1" visible="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="12" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="1665" top="585" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="1665" top="585" type="Box" width="2175">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="modelo.obj">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Path">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Assimp.Nodes.dll" id="10" nodename="Scene (Assimp)" systemname="Scene (Assimp)">
+   <BOUNDS height="270" left="2085" top="2010" type="Node" width="1605">
+   </BOUNDS>
+   <PIN pinname="Path" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Index" visible="1">
+   </PIN>
+   <PIN pinname="Material Textures" visible="1">
+   </PIN>
+   <PIN pinname="Material Index" visible="1">
+   </PIN>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Reload" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Count" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Path" linkstyle="VHV" srcnodeid="12" srcpinname="Output String">
+   <LINKPOINT x="2455" y="1553">
+   </LINKPOINT>
+   <LINKPOINT x="1340" y="1268">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Assimp.Nodes.dll" id="9" nodename="Mesh (EX9.Geometry Assimp)" systemname="Mesh (EX9.Geometry Assimp)">
+   <BOUNDS height="100" left="2610" top="3675" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Material Index" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="9" dstpinname="Scene" linkstyle="Bezier" srcnodeid="10" srcpinname="Scene">
+   <LINKPOINT x="2130" y="2978">
+   </LINKPOINT>
+   <LINKPOINT x="2625" y="2978">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="3615" top="1170" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="3615" top="1170" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Reload">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Reload" srcnodeid="8" srcpinname="Y Output Value">
+   </LINK>
+   <NODE componentmode="InABox" id="7" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="2850" top="2865" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="2850" top="2865" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Mesh Count|">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="7" dstpinname="Y Input Value" srcnodeid="10" srcpinname="Mesh Count">
+   </LINK>
+   <NODE componentmode="InABox" id="6" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="3975" top="2835" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="3975" top="2835" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Is Valid|">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="6" dstpinname="Y Input Value" linkstyle="VHV" srcnodeid="10" srcpinname="Is Valid">
+   <LINKPOINT x="3690" y="2558">
+   </LINKPOINT>
+   <LINKPOINT x="3975" y="2558">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Assimp.Nodes.dll" id="3" nodename="Node (Assimp)" systemname="Node (Assimp)">
+   <BOUNDS height="100" left="615" top="3120" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Id Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Id" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="3" dstpinname="Scene" linkstyle="Bezier" srcnodeid="10" srcpinname="Scene">
+   <LINKPOINT x="2085" y="2685">
+   </LINKPOINT>
+   <LINKPOINT x="675" y="2685">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" id="2" nodename="Select (Node)" systemname="Select (Node)">
+   <BOUNDS height="100" left="630" top="4470" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="2" dstpinname="Select" linkstyle="Bezier" srcnodeid="3" srcpinname="Mesh Id Bin Size">
+   <LINKPOINT x="1185" y="3930">
+   </LINKPOINT>
+   <LINKPOINT x="1395" y="3930">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="13" dstpinname="Transform" linkstyle="VHV" srcnodeid="2" srcpinname="Output">
+   <LINKPOINT x="690" y="5190">
+   </LINKPOINT>
+   <LINKPOINT x="2235" y="5190">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" id="1" nodename="Select (Node)" systemname="Select (Node)">
+   <BOUNDS height="100" left="2085" top="4515" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="1" dstpinname="Input" linkstyle="Bezier" srcnodeid="9" srcpinname="Mesh">
+   <LINKPOINT x="2595" y="4223">
+   </LINKPOINT>
+   <LINKPOINT x="2145" y="4223">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="1" dstpinname="Select" linkstyle="Bezier" srcnodeid="3" srcpinname="Mesh Id Bin Size">
+   <LINKPOINT x="1215" y="3938">
+   </LINKPOINT>
+   <LINKPOINT x="2820" y="3938">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="13" dstpinname="Mesh" srcnodeid="1" srcpinname="Output">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="5490" top="5400" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="3525" top="7455" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Layer" dstnodeid="15" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="17" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX9)" filename="%VVVV%\lib\nodes\modules\EX9\AxisAndGrid (DX9).v4p" nodename="AxisAndGrid (DX9)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="1170" top="6765" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Layer" dstnodeid="17" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="View" dstnodeid="15" dstpinname="View" linkstyle="Bezier">
+   <LINKPOINT x="5175" y="7648">
+   </LINKPOINT>
+   <LINKPOINT x="4605" y="7128">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="14" dstpinname="Initial Yaw" linkstyle="Bezier">
+   <LINKPOINT x="5490" y="6113">
+   </LINKPOINT>
+   <LINKPOINT x="5145" y="6113">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="19" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5100" top="555" width="2550" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5100" top="555" width="4770" height="495">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Exportar desde Blender como .obj|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="13">
+   </PIN>
+   </NODE>
+   </PATCH>
